@@ -1,0 +1,125 @@
+Mac-Book-Pro-Sedclerk:~ Sedclerk$ cd desktop
+Mac-Book-Pro-Sedclerk:desktop Sedclerk$ cd project_18
+Mac-Book-Pro-Sedclerk:project_18 Sedclerk$ pwd
+/Users/Sedclerk/desktop/project_18
+Mac-Book-Pro-Sedclerk:project_18 Sedclerk$ which mysql
+/usr/local/bin/mysql
+Mac-Book-Pro-Sedclerk:project_18 Sedclerk$ mysql --version
+mysql  Ver 14.14 Distrib 5.6.10, for osx10.8 (x86_64) using  EditLine wrapper
+Mac-Book-Pro-Sedclerk:project_18 Sedclerk$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 5.6.11 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOw databases;
++----------------------+
+| Database             |
++----------------------+
+| information_schema   |
+| ATM                  |
+| Bank                 |
+| Bank1                |
+| account              |
+| accountdatabase      |
+| accountdb            |
+| baby                 |
+| bank_account         |
+| bankbe               |
+| banking              |
+| banky                |
+| bmoi                 |
+| customer_balance     |
+| customer_id          |
+| customer_transaction |
+| lol                  |
+| malagasy             |
+| mysql                |
+| performance_schema   |
+| pro                  |
+| project13            |
+| sedy                 |
+| test                 |
+| try                  |
+| tsiky                |
++----------------------+
+26 rows in set (0.04 sec)
+
+mysql> create database project_18_development;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++------------------------+
+| Database               |
++------------------------+
+| information_schema     |
+| ATM                    |
+| Bank                   |
+| Bank1                  |
+| account                |
+| accountdatabase        |
+| accountdb              |
+| baby                   |
+| bank_account           |
+| bankbe                 |
+| banking                |
+| banky                  |
+| bmoi                   |
+| customer_balance       |
+| customer_id            |
+| customer_transaction   |
+| lol                    |
+| malagasy               |
+| mysql                  |
+| performance_schema     |
+| pro                    |
+| project13              |
+| project_18_development |
+| sedy                   |
+| test                   |
+| try                    |
+| tsiky                  |
++------------------------+
+27 rows in set (0.00 sec)
+
+mysql> GRANT ALL PRIVILEGES ON project_18_development.*
+    -> TO 'project_18'@'localhost'
+    -> IDENTIFIED BY 'Sedclerk13';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW GRANTS FOR 'project_18'@'localhost';
++-------------------------------------------------------------------------------------------------------------------+
+| Grants for project_18@localhost                                                                                   |
++-------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'project_18'@'localhost' IDENTIFIED BY PASSWORD '*25602F012AABA5ADD2AB0969627DCE8438A01E05' |
+| GRANT ALL PRIVILEGES ON `project_18_development`.* TO 'project_18'@'localhost'                                    |
++-------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> exit
+Bye
+Mac-Book-Pro-Sedclerk:project_18 Sedclerk$ mysql -u project_18 -p project_18_development
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 5.6.11 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> exit
+Bye
+Mac-Book-Pro-Sedclerk:project_18 Sedclerk$ rake db:schema:dump
