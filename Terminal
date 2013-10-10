@@ -179,3 +179,21 @@ mysql> show tables;
 
 mysql> select * from visitors;
 Empty set (0.01 sec)
+
+validates_presence_of
+- Attribute must not be blank (nil, false, "", "", [], {})
+- :message => "ccan't be blank"
+
+valodates_length_of
+- Attribute must meet the length recquirements of the options
+- :is, :minimun, :maximum (integer)
+- :within, :in (range)
+- :wrong_length => "is the wrong length (should be {{count}}characters)"
+- :too_short => "is too long (minimum is {{count}}characters)"
+- :too_long => "is too long (maximum is {{count}}characters)"
+
+validates_numericality_of
+- Attribute must be an interger or floating point number
+- :equal_to, :greater_than, :less_than, :greater_than_or_equal_to, :less_than_or_equal_to (numeric)
+- :odd, :even, :only_integer (boolean)
+- :message => "is not a number"
