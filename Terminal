@@ -197,3 +197,12 @@ validates_numericality_of
 - :equal_to, :greater_than, :less_than, :greater_than_or_equal_to, :less_than_or_equal_to (numeric)
 - :odd, :even, :only_integer (boolean)
 - :message => "is not a number"
+
+Mac-Book-Pro-Sedclerk:project_18 Sedclerk$ rails console
+Loading development environment (Rails 4.0.0)
+irb(main):001:0> ActiveRecord::Migration.drop_table(:visitors)
+-- drop_table(:visitors)
+   (26.4ms)  DROP TABLE `visitors`
+   -> 0.0639s
+=> nil
+irb(main):002:0> 
