@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Japanese Vehicules.com</title>
+</head>
+<body>
+<div id="main">
+<h1>JapaneseVehicules.com</h1>
+<hr>
+<h2> Sale and Export of Japanese Used Cars
+</h2>
+<h3>Quality Used Vehicles - Timely Shipping - Reliable Service </h3>
+<a href="http://www.japanesevehicles.com/index.php?lang=en"><img height="200" src="http://www.japanesevehicles.com/images/Trust-Square-logo.png" /></a>
+<p>
+<h4>"Great Deal for the week"</h4>
+
+<ol>
+
+     <li>NISSAN NAVARA year = 2005, Distance = 158,000km, Engine = 2.5L, type: Pick-up, steering : Right Hand Drive, Seats : 5, Fuel : Diesel, Color: Black, Price: Interesting!!! to find out more about this car <a href="http://www.japanesevehicles.com/vehicle_details.php?vid=149300&lang=en">Click here</a> OR if you just want to take a look of the picture <a href="http://photos.japanesevehicles.com/photos/L/149300/149300-1.jpg">Click here</a>...</l>
+
+     <li>NISSAN CARAVAN (URVAN) year = 2011, Distance = 19,000 km, Engine = 2.0L, type: Utility Van, steering : Right Hand Drive, Seats : 6, Fuel : Petrol, Color: Silver, Price: Interesting!!! to find out more about this car <a href="http://www.japanesevehicles.com/vehicle_details.php?vid=148117&lang=en">Click here</a> OR if you just want to take a look of the picture <a href="http://photos.japanesevehicles.com/photos/L/148117/148117-1.jpg">Click here</a>...</l>
+
+     <li>NISSAN TERRANO (PATHFINDER) year = 2007, Distance = 178,000 km, Engine = 2.5L, type: SUV/ 4WD, steering : Right Hand Drive, Seats : 7, Fuel : Diesel, Color: Grey, Price: Interesting!!! to find out more about this car <a href="http://www.japanesevehicles.com/vehicle_details.php?vid=150996&lang=en">Click here</a> OR if you just want to take a look of the picture <a href="http://photos.japanesevehicles.com/photos/L/150996/150996-1.jpg">Click here</a>...</l>
+
+     <li>NISSAN SAFARI (PATROL) year = 2004, Distance = 144,000 km, Engine = 3.0L, type: SUV/ 4WD, steering : Right Hand Drive, Seats : 7, Fuel : Diesel, Color: Wine red/beige, Price: Interesting!!! to find out more about this car <a href="http://www.japanesevehicles.com/vehicle_details.php?vid=151790&lang=en">Click here</a> OR if you just want to take a look of the picture <a href="http://photos.japanesevehicles.com/photos/L/151790/151790-1.jpg">Click here</a>...</l>
+
+     <li>NISSAN X-TRAIL year = 2008, Distance = 97,000 km, Engine = 2.0L, type: SUV/ 4WD, steering : Right Hand Drive, Seats : 5, Fuel : Petrol, Color: Whitepearl, Price: Interesting!!! to find out more about this car <a href="http://www.japanesevehicles.com/vehicle_details.php?vid=151873&lang=en">Click here</a> OR if you just want to take a look of the picture <a href="http://photos.japanesevehicles.com/photos/L/151873/151873-1.jpg">Click here</a>...</l>
+     </ol>
+</p>
+</div>
+</body>
+
+<%=link_to"Contact us here", new_sampleform_path%> <br/><hr><hr>
+
+<% @sampleforms.each do |sampleform| %>
+Firstname: <%= sampleform.firstname %><br/><br/>
+lastname: <%= sampleform.lastname %><br/><br/>
+Gender: <%= sampleform.gender %><br/><br/>
+Phone: <%= sampleform.phone %><br/><br/>
+Country: <%= sampleform.country %><br/><br/>
+Email: <%= sampleform.email %><br/><br/>
+Message: <%= sampleform.message %><br/><br/>
+<%= link_to"Save information", sampleform_path(sampleform), :data =>{:confirm =>"make sure all your info are correct"}, :method => :save %>
+<br/><hr><hr>
+<% end %>
+</html>
