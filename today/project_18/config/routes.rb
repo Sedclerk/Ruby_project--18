@@ -1,9 +1,7 @@
-Project18::Application.routes.draw do
-    root to: "posts#index" #or root :to => "posts#index"
-  get "posts/index"
-  resources :posts
+Submit::Application.routes.draw do
+  root to: "messages#index"
+  resources :messages
 
-  #match 'posts/send' => 'posts#send', :as => :send_posts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

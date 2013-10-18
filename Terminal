@@ -206,3 +206,64 @@ irb(main):001:0> ActiveRecord::Migration.drop_table(:visitors)
    -> 0.0639s
 => nil
 irb(main):002:0> 
+
+
+mysql> show databases;
++------------------------+
+| Database               |
++------------------------+
+| information_schema     |
+| ATM                    |
+| Bank                   |
+| Bank1                  |
+| account                |
+| accountdatabase        |
+| accountdb              |
+| baby                   |
+| bank_account           |
+| bankbe                 |
+| banking                |
+| banky                  |
+| bmoi                   |
+| customer_balance       |
+| customer_id            |
+| customer_transaction   |
+| lol                    |
+| malagasy               |
+| mysql                  |
+| performance_schema     |
+| pro                    |
+| project13              |
+| project_18_development |
+| sedy                   |
+| submit                 |
+| test                   |
+| try                    |
+| tsiky                  |
+| users                  |
++------------------------+
+29 rows in set (0.03 sec)
+
+mysql> use users;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_users   |
++-------------------+
+| messages          |
+| schema_migrations |
+| visit_details     |
+| visits            |
++-------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from messages;
++----+-------+-------+-------------------------+-----------+-------------------------+---------------------+---------------------+
+| id | name  | last  | email                   | phone     | message                 | created_at          | updated_at          |
++----+-------+-------+-------------------------+-----------+-------------------------+---------------------+---------------------+
+|  4 | Steve | Books | Stevebooks@capshare.com | 320720374 | Best Header programmer  | 2013-10-18 11:52:27 | 2013-10-18 11:52:27 |
++----+-------+-------+-------------------------+-----------+-------------------------+---------------------+---------------------+
+1 row in set (0.01 sec)

@@ -11,9 +11,9 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: project_18_development
+  database: users
   pool: 5
-  username: project_18
+  username: root
   password: Sedclerk13
   socket: /tmp/mysql.sock
 
@@ -23,7 +23,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: project_18_test
+  database: submit_test
   pool: 5
   username: root
   password:
@@ -32,8 +32,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: project_18_production
+  database: submit_production
   pool: 5
-  username: 
-  password: 
+  username: root
+  password:
   socket: /tmp/mysql.sock

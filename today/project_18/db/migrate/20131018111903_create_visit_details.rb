@@ -1,3 +1,5 @@
+
+
 class CreateVisitDetails < ActiveRecord::Migration
   def self.up
     create_table :visit_details do |t|
@@ -15,3 +17,4 @@ class CreateVisitDetails < ActiveRecord::Migration
     drop_table :visit_details
   end
 end
+

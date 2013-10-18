@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Project18::Application.config.secret_key_base = '3e28b02c8411c83ecd0d85165952172558ca8ab31d0872343bd55704a7807d95d46adc8d2c03f0528f4e7f72c044fc7696386cb6c48a2901fc2fadcb4698d954'
+Submit::Application.config.secret_key_base = '8f658afe64ac1d418e841e1fa743e72c962f430bd5df8000f35ffe87438b68785868e273c33591f7656a6efb9e133958c2fd37a6e33e9f0dc5ade1fecdb6fe79'
