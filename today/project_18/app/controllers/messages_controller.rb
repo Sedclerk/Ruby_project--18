@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   before_action :set_message, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /messages
   # GET /messages.json
   def index
@@ -31,6 +31,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @messages.save
+        UserMailer.registration_confirmation(@messages).deliver
         format.html { redirect_to @messages, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @messages }
       else

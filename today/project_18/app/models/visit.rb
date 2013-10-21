@@ -5,7 +5,7 @@ class Visit < ActiveRecord::Base
   
 
 def self.track(obj, ip_address)
-    if visit = Visit.find_or_create_by_visitable_id_and_visitable_type(obj.id, obj.class.name)
+    visit = Visit.find_or_create_by_visitable_id_and_visitable_type(obj.id, obj.class.name)
     ### check if visit is unique
     unless VisitDetail.find_by_visit_id_and_ip_address(visit.id, ip_address)
          visit.increment!(:unique_visits)
