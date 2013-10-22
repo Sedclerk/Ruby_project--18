@@ -1,1 +1,0 @@
-UserMailer.registration_confirmation(@user).deliver
