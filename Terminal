@@ -1407,3 +1407,155 @@ Mac-Book-Pro-Sedclerk:project Sedclerk$ rails generate model visit_detail
       create      test/fixtures/visit_details.yml
 Mac-Book-Pro-Sedclerk:project Sedclerk$ 
 
+Mac-Book-Pro-Sedclerk:project Sedclerk$ rails g mailer user_mailer
+      create  app/mailers/user_mailer.rb
+      invoke  erb
+      create    app/views/user_mailer
+      invoke  test_unit
+      create    test/mailers/user_mailer_test.rb
+
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 475
+Server version: 5.6.11 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use project_development;
+Database changed
+mysql> show tables;
++-------------------------------+
+| Tables_in_project_development |
++-------------------------------+
+| messages                      |
+| schema_migrations             |
+| visit_details                 |
+| visits                        |
++-------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from mesages;
+ERROR 1146 (42S02): Table 'project_development.mesages' doesn't exist
+mysql> select * from messages;
+Empty set (0.00 sec)
+
+mysql> describe messages;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255) | YES  |     | NULL    |                |
+| last_name  | varchar(255) | YES  |     | NULL    |                |
+| phone      | int(11)      | YES  |     | NULL    |                |
+| email      | varchar(255) | YES  |     | NULL    |                |
+| message    | text         | YES  |     | NULL    |                |
+| created_at | datetime     | YES  |     | NULL    |                |
+| updated_at | datetime     | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql>  select * from messages;
++----+--------+----------------+------------+--------------------+-------------------------------------+---------------------+---------------------+
+| id | name   | last_name      | phone      | email              | message                             | created_at          | updated_at          |
++----+--------+----------------+------------+--------------------+-------------------------------------+---------------------+---------------------+
+|  1 | Sedy   | Randrianarison | 1234567890 | sedclerk@gmail.com | sacasvfswfrbgtwtbgstrbhetbndtryhnte | 2013-10-23 10:54:30 | 2013-10-23 10:54:30 |
+|  2 | Justin | Randrianarison | 1234567890 | aina.ctr@gmail.com | asdcarvqarvfaefvaefvaefsvb          | 2013-10-23 11:08:09 | 2013-10-23 11:08:09 |
++----+--------+----------------+------------+--------------------+-------------------------------------+---------------------+---------------------+
+2 rows in set (0.01 sec)
+
+mysql> select * from messages;
++----+--------+----------------+------------+--------------------+-------------------------------------+---------------------+---------------------+
+| id | name   | last_name      | phone      | email              | message                             | created_at          | updated_at          |
++----+--------+----------------+------------+--------------------+-------------------------------------+---------------------+---------------------+
+|  1 | Sedy   | Randrianarison | 1234567890 | sedclerk@gmail.com | sacasvfswfrbgtwtbgstrbhetbndtryhnte | 2013-10-23 10:54:30 | 2013-10-23 10:54:30 |
+|  2 | Justin | Randrianarison | 1234567890 | aina.ctr@gmail.com | asdcarvqarvfaefvaefvaefsvb          | 2013-10-23 11:08:09 | 2013-10-23 11:08:09 |
++----+--------+----------------+------------+--------------------+-------------------------------------+---------------------+---------------------+
+2 rows in set (0.04 sec)
+
+mysql> 
+Started GET "/messages" for 127.0.0.1 at 2013-10-23 15:23:48 +0300
+Processing by MessagesController#index as HTML
+  Message Load (0.3ms)  SELECT `messages`.* FROM `messages`
+  Rendered messages/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/messages/3" for 127.0.0.1 at 2013-10-23 15:25:29 +0300
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  Message Load (0.2ms)  SELECT `messages`.* FROM `messages` WHERE `messages`.`id` = 3 LIMIT 1
+  CACHE (0.0ms)  SELECT `messages`.* FROM `messages` WHERE `messages`.`id` = 3 LIMIT 1  [["id", "3"]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.find_or_create_by(name: 'foo') instead. (called from track at /Users/Sedclerk/Desktop/last/project/app/models/visit.rb:7)
+  Visit Load (0.6ms)  SELECT `visits`.* FROM `visits` WHERE `visits`.`visitable_id` = 3 AND `visits`.`visitable_type` = 'Message' ORDER BY `visits`.`id` ASC LIMIT 1
+  VisitDetail Load (0.3ms)  SELECT `visit_details`.* FROM `visit_details` WHERE `visit_details`.`visit_id` = 3 AND `visit_details`.`ip_address` = '127.0.0.1' LIMIT 1
+   (0.2ms)  BEGIN
+  SQL (0.4ms)  UPDATE `visits` SET `total_visits` = 2, `updated_at` = '2013-10-23 12:25:29' WHERE `visits`.`id` = 3
+   (0.3ms)  COMMIT
+   (0.2ms)  BEGIN
+  SQL (0.3ms)  INSERT INTO `visit_details` (`created_at`, `ip_address`, `updated_at`, `visit_id`) VALUES ('2013-10-23 12:25:29', '127.0.0.1', '2013-10-23 12:25:29', 3)
+   (0.3ms)  COMMIT
+  Rendered messages/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 105ms (Views: 6.2ms | ActiveRecord: 13.3ms)
+
+Last login: Wed Oct 23 15:02:43 on ttys001
+Mac-Book-Pro-Sedclerk:project Sedclerk$ mysql -u project -p project_development
+Enter password: 
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2562
+Server version: 5.6.11 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use project_development
+Database changed
+mysql> show tables;
++-------------------------------+
+| Tables_in_project_development |
++-------------------------------+
+| messages                      |
+| schema_migrations             |
+| visit_details                 |
+| visits                        |
++-------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from visit_details;
++----+----------+------------+---------------------+---------------------+
+| id | visit_id | ip_address | created_at          | updated_at          |
++----+----------+------------+---------------------+---------------------+
+|  1 |        1 | 127.0.0.1  | 2013-10-23 10:54:30 | 2013-10-23 10:54:30 |
+|  2 |        2 | 127.0.0.1  | 2013-10-23 11:08:09 | 2013-10-23 11:08:09 |
+|  3 |        1 | 127.0.0.1  | 2013-10-23 12:20:32 | 2013-10-23 12:20:32 |
+|  4 |        3 | 127.0.0.1  | 2013-10-23 12:23:40 | 2013-10-23 12:23:40 |
+|  5 |        3 | 127.0.0.1  | 2013-10-23 12:25:29 | 2013-10-23 12:25:29 |
++----+----------+------------+---------------------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from visits;
++----+--------------+----------------+--------------+---------------+---------------------+---------------------+
+| id | visitable_id | visitable_type | total_visits | unique_visits | created_at          | updated_at          |
++----+--------------+----------------+--------------+---------------+---------------------+---------------------+
+|  1 |            1 | Message        |            2 |             1 | 2013-10-23 10:54:30 | 2013-10-23 12:20:32 |
+|  2 |            2 | Message        |            1 |             1 | 2013-10-23 11:08:09 | 2013-10-23 11:08:09 |
+|  3 |            3 | Message        |            2 |             1 | 2013-10-23 12:23:40 | 2013-10-23 12:25:29 |
++----+--------------+----------------+--------------+---------------+---------------------+---------------------+
+3 rows in set (0.00 sec)
+
+mysql> exit
+Bye
+Mac-Book-Pro-Sedclerk:project Sedclerk$ 
