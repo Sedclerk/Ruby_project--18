@@ -1,11 +1,18 @@
 class ApplicationController < ActionController::Base
-    before_filter :record_click
+  before_filter :Visit
+
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  private
-    def record_click
-       redirect_to(:root) && return if @offline == 'true'
+  #private
+   def Visit
+    	@message = Message.find(params[:message_id])
+         visit.increment_counter(:visit_details, @message.id)
     end
+#
+#before_filter :visit.track
+#def visit.track
+#	 @message = Message.find_or_create_by_url(request.url)
+#	 Message.increment_counter(:count, @message.id)
 end
