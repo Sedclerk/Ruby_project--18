@@ -8,13 +8,15 @@ class MessagesController < ApplicationController
     @messages = Message.all
   end
 
-  def visit_track
+  def Visit
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
     @message = Message.find(params[:id])
+    @visit = Visit.create (params[:visit])
+    @visitdetail = VisitDetail.create (params[:VisitDetail])
     Visit.track(@message, request.remote_ip)
   end
 
