@@ -9,14 +9,15 @@ class MessagesController < ApplicationController
   end
 
   def Visit
+    @visit = Visit.create (params[:visit])
+    @visitdetail = VisitDetail.create (params[:VisitDetail])
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
     @message = Message.find(params[:id])
-    @visit = Visit.create (params[:visit])
-    @visitdetail = VisitDetail.create (params[:VisitDetail])
+    
     Visit.track(@message, request.remote_ip)
   end
 
@@ -36,6 +37,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        flash[:notice] = "Thanks for your submit!"
         UserMailer.registration_confirmation(@message).deliver
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }

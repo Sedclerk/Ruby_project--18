@@ -5,10 +5,15 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  #private
+  private
    def Visit
-    	@message = Message.find(params[:message_id])
-         visit.increment_counter(:visit_details, @message.id)
+    	@visit = Visit.find(params[:id])
+      visit.increment_counter(:visit_details, @visit.id)
+         if !@visit
+           redirect_back
+           return false
+         end
+
     end
 #
 #before_filter :visit.track
