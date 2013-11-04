@@ -1559,3 +1559,24 @@ mysql> select * from visits;
 mysql> exit
 Bye
 Mac-Book-Pro-Sedclerk:project Sedclerk$ 
+
+
+Last login: Mon Nov  4 10:12:45 on ttys000
+Mac-Book-Pro-Sedclerk:project Sedclerk$ rails generate destroy model visit
+Could not find generator destroy.
+Mac-Book-Pro-Sedclerk:project Sedclerk$ cd ..
+Mac-Book-Pro-Sedclerk:desktop Sedclerk$ cd project
+Mac-Book-Pro-Sedclerk:project Sedclerk$ rails destroy model visit
+      invoke  active_record
+      remove    db/migrate/20131022132115_create_visits.rb
+      remove    app/models/visit.rb
+      invoke    test_unit
+      remove      test/models/visit_test.rb
+      remove      test/fixtures/visits.yml
+Mac-Book-Pro-Sedclerk:project Sedclerk$ rails destroy model visit_detail
+      invoke  active_record
+      remove    db/migrate/20131022132127_create_visit_details.rb
+      remove    app/models/visit_detail.rb
+      invoke    test_unit
+      remove      test/models/visit_detail_test.rb
+      remove      test/fixtures/visit_details.yml
