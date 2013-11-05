@@ -37,7 +37,7 @@ end
 gem "mail", "2.5.4"
 # Use unicorn as the app server
 # gem 'unicorn'
-
+#gem "development_mail_interceptor (0.1.2)"
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 

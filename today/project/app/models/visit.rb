@@ -12,7 +12,7 @@ def self.track(obj, ip_address)
     end
     visit.increment!(:total_visits)
     visit_stat = visit.visit_stats.create(:ip_address => ip_address)
-  end
+      end
 
 
 end
