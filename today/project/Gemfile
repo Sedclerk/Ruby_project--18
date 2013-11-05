@@ -40,6 +40,6 @@ gem "mail", "2.5.4"
 #gem "development_mail_interceptor (0.1.2)"
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-gem "mailcatcher", "0.5.12"
+#gem "mailcatcher", "0.5.12"
 # Use debugger
 # gem 'debugger', group: [:development, :test]
