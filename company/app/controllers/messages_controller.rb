@@ -10,6 +10,8 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+    @message = Message.find(params[:id])
+    Visit.track(@message, request.remote_ip)
   end
 
   # GET /messages/new

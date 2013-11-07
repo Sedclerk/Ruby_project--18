@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131106115702) do
+ActiveRecord::Schema.define(version: 20131107085720) do
 
   create_table "messages", force: true do |t|
     t.string   "name"
@@ -22,5 +22,31 @@ ActiveRecord::Schema.define(version: 20131106115702) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "visit_stats", force: true do |t|
+    t.integer  "visit_id"
+    t.string   "ip_address",    limit: 15
+    t.integer  "num_of_visits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "visit_stats", ["ip_address"], name: "index_visit_stats_on_ip_address", using: :btree
+  add_index "visit_stats", ["num_of_visits"], name: "index_visit_stats_on_num_of_visits", using: :btree
+  add_index "visit_stats", ["visit_id"], name: "index_visit_stats_on_visit_id", using: :btree
+
+  create_table "visits", force: true do |t|
+    t.integer  "visitable_id"
+    t.string   "ip_address",     limit: 15
+    t.string   "visitable_type", limit: 30
+    t.integer  "total_visits"
+    t.integer  "unique_visits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "visits", ["ip_address"], name: "index_visits_on_ip_address", using: :btree
+  add_index "visits", ["visitable_id"], name: "index_visits_on_visitable_id", using: :btree
+  add_index "visits", ["visitable_type"], name: "index_visits_on_visitable_type", using: :btree
 
 end
