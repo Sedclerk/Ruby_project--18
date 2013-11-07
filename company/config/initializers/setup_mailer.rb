@@ -1,4 +1,6 @@
-       ActionMailer::Base.smtp_settings = {  
+require 'development_mail_interceptor'
+ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+ActionMailer::Base.smtp_settings = {  
       :address              => ENV["smtp.gmail.com"],  
       :port                 => ENV['587'].to_i,  
       :domain               => ENV["gmail.com"],  
@@ -7,5 +9,4 @@
       :authentication       => "plain",  
       :enable_starttls_auto => true  
     }  
-    ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
-    ActionMailer::Base.default_url_options[:host] = "localhost:3000" 
+ActionMailer::Base.default_url_options[:host] = "localhost:3000" 
