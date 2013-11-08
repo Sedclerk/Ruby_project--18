@@ -365,4 +365,24 @@ Mac-Book-Pro-Sedclerk:company Sedclerk$ rails s\
 [2013-11-06 15:12:56] INFO  WEBrick::HTTPServer#start: pid=5131 port=3000\
 \
 \
-============================================================================}
+============================================================================\
+\
+\
+\
+Mac-Book-Pro-Sedclerk:company Sedclerk$ rails g migration Removecolumns\
+      invoke  active_record\
+      create    db/migrate/20131108071503_removecolumns.rb\
+Mac-Book-Pro-Sedclerk:company Sedclerk$ rake db:migrate\
+==  Removecolumns: migrating ==================================================\
+-- remove_column(:visits, :visitable_id)\
+   -> 0.0502s\
+-- remove_column(:visits, :visitable_type)\
+   -> 0.0210s\
+-- remove_column(:visits, :total_visits)\
+   -> 0.0223s\
+-- remove_column(:visits, :unique_visits)\
+   -> 0.0452s\
+==  Removecolumns: migrated (0.1390s) =========================================\
+\
+Mac-Book-Pro-Sedclerk:company Sedclerk$ \
+}
