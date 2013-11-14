@@ -395,4 +395,26 @@ Done installing documentation for rake after 1 seconds\
 Mac-Book-Pro-Sedclerk:company Sedclerk$ rails g task visit_stat\
       create  lib/tasks/visit_stat.rake\
 Mac-Book-Pro-Sedclerk:company Sedclerk$ \
+\
+All commands can be run with -h (or --help) for more information.\
+Mac-Book-Pro-Sedclerk:company Sedclerk$ rails g migrate impressions;\
+Could not find generator migrate.\
+Mac-Book-Pro-Sedclerk:company Sedclerk$ rails g model impressions;\
+      invoke  active_record\
+      create    db/migrate/20131114081817_create_impressions.rb\
+      create    app/models/impressions.rb\
+      invoke    test_unit\
+      create      test/models/impressions_test.rb\
+      create      test/fixtures/impressions.yml\
+Mac-Book-Pro-Sedclerk:company Sedclerk$ rake db:migrate\
+==  CreateImpressions: migrating ==============================================\
+-- create_table(:impressions, \{:force=>true\})\
+   -> 0.0498s\
+==  CreateImpressions: migrated (0.0499s) =====================================\
+\
+Mac-Book-Pro-Sedclerk:company Sedclerk$ exit\
+logout\
+\
+[Process completed]\
+\
 }
