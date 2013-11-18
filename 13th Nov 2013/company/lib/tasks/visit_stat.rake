@@ -1,41 +1,32 @@
 namespace :task do
   desc "Record a visit"
   task :record => :environment do
-require "mysql"
-@db = Mysql.new 'localhost', 'Sedy', 'Sedclerk13', 'Sedy_development'
-st = @db.query("INSERT INTO visit_stats(num_of_visits) VALUES (0)")
 
-mysql_query('SELECT * FROM visit_stats WHERE ip=\'' , request.env['action_dispatch.request_id'])
-mysql_fetch_array(return)
-if nbre_entrees == 0 # L'IP ne se trouve pas dans la table, on va l'ajouter.
-{
-   mysql_query('INSERT INTO  VALUES(request_ip);
-}
-else 
-    mysql_query('UPDATE visit_stats SET num_of_visits WHERE ip=\'' . request_ip);
+#Here, I'm trying to obtain a connection adapter object,
+#i m calling the connection method on your ActiveRecord class or any ActiveRecord object:
+id ={1...1000}
+v = VisitStat.create(params[:num_of_visits])
+connection = visit_stats.connection
+num_of_visits = connection.insert("SELECT num_of_visits FROM visit_stats WHERE #{id}")
 
-# ÉTAPE 3 : on compte le nombre d'IP stockées dans la table. C'est le nombre de visiteurs connectés.
- mysql_query('SELECT * FROM visit_stats');
- mysql_fetch_array(return);
-  # Ouf ! On n'a plus qu'à afficher le nombre de connectés !
-  end
 end
+new_name = visit_stats.increment
+row_id = 1...1000
+row_num_of_visits = connection.update(
+  "UPDATE users SET name=#{connection.quote(new_name)}"+
+  " WHERE id=#{connection.quote(row_id)}")
+  
+  connection.insert(
+  "INSERT INTO visit_stats SET num_of_visits = #{connection.quote(new_name)}, created_at='now'")
 #namespace :db do
  #   desc "Save and update the  database"
  #   task :save => :environment do
    #   visit_stat = ActiveRecord::Base.configurations
     #  ActiveRecord::Base.establish_connection(visit_stat[RAILS_ENV])
-     # ActiveRecord::Base.connection.save_database(ActiveRecord::Base.connection.current_database)
+     # ActiveRecord::Base.connection.save_database(ActiveRecord::Base.connection.sedy)
     #end
   #end
 
-desc "This task is called by the Heroku scheduler add-on"
-task :queue => :environment do
-  puts "Updating table visit_stats"
-  @message.each do |message| #or Message.all.each.send(:update)
-    message.update
-  end
-  puts "done."
-end
+
 
 #@visit_stats = num_of_visits.increment
