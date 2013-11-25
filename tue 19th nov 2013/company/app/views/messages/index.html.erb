@@ -65,9 +65,6 @@
 
 </div>
 
-<% @visit_stats.each do |visit_stat| %>
-<%= visit_stat.num_of_visits%><hr />
-<% end %>
 
 <h2>Visits:</h2>
   <p><span class="gray">Total:</span><%= @message.visit.total_visits rescue 0 %></p>

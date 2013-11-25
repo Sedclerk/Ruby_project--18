@@ -1,6 +1,14 @@
 namespace :task do
   desc "Record a visit"
-  task :record => :environment do
+  task :visit_stats => :environment do
+  Visit.find_each do |visit|
+  vs = VisitStat.where(ip_address: visit.ip_address).first
+  if vs.nil?
+    vs = VisitStat.create(ip_address: visit.ip_address)
+  else
+    vs.increment!(:num_visits)
+  end
+end
 
 #Here, I'm trying to obtain a connection adapter object,
 #i m calling the connection method on your ActiveRecord class or any ActiveRecord object:
