@@ -13,7 +13,15 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     Visit.track(@message, request.remote_ip)
   end
-
+  #====================try page views counter===============
+#def show
+#  @message = Message.find(params[:id])
+#  addcount = @message.num_of_visits += 1
+#@message.update_attribute 'num_of_visits', @message.num_of_visits + 1
+#end
+#
+#
+#
   # GET /messages/new
   def new
     @message = Message.new
