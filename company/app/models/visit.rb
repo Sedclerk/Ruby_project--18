@@ -11,7 +11,7 @@ belongs_to :visitable, :polymorphic => true
     #end
     #
     #visit.increment!(:num_of_visits)
-    visit_stat = visit.visit_stats.create(:ip_address => ip_address)
+   # visit_stat = visit.visit_stats.create(:ip_address => ip_address)
   
-    end
+  end
 end
