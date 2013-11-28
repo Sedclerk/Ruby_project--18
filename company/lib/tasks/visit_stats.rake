@@ -14,3 +14,6 @@ namespace :task do
   end
 end
 end
+
+
+# to run it rake task:visit_stats
