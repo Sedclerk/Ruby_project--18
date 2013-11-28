@@ -16,4 +16,4 @@ end
 end
 
 
-# to run it rake task:visit_stats
+# to run it type this in your terminal: rake task:visit_stats and make sure you are on the right folder

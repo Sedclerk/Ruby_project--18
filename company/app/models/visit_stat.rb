@@ -1,4 +1,4 @@
 class VisitStat < ActiveRecord::Base
 	belongs_to :visit
-	attr_accessor:work_phone
+	attr_accessor :num_of_visits
 end
