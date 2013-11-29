@@ -11,9 +11,9 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: sedy_development
+  database: company_development
   pool: 5
-  username: sedy
+  username: company
   password: Sedclerk13
   socket: /tmp/mysql.sock
 
