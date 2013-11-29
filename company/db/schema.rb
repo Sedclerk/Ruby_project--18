@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108112325) do
+ActiveRecord::Schema.define(version: 20131129093117) do
 
   create_table "messages", force: true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20131108112325) do
     t.string   "ip_address", limit: 15
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "processed"
   end
 
   add_index "visits", ["ip_address"], name: "index_visits_on_ip_address", using: :btree
