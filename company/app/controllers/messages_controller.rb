@@ -10,18 +10,8 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
-    @message = Message.find(params[:id])
-    Visit.track(@message, request.remote_ip)
   end
-  #====================try page views counter===============
-#def show
-#  @message = Message.find(params[:id])
-#  addcount = @message.num_of_visits += 1
-#@message.update_attribute 'num_of_visits', @message.num_of_visits + 1
-#end
-#
-#
-#
+
   # GET /messages/new
   def new
     @message = Message.new
@@ -33,18 +23,11 @@ class MessagesController < ApplicationController
 
   # POST /messages
   # POST /messages.json
-
-
-
-
-  
   def create
     @message = Message.new(message_params)
 
     respond_to do |format|
-
       if @message.save
-        UserMailer.registration_confirmation(@message).deliver
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else

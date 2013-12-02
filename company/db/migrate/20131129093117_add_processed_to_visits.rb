@@ -1,9 +1,7 @@
 class AddProcessedToVisits < ActiveRecord::Migration
   def change
-    add_column :visits, :processed, :string
-    Visit.all.each do |visit|
-      visit.update_attributes(:processed => 'normal')
-    end
+    add_column :visits, :processed, :boolean, :default => 0
+    
   end
 
 
