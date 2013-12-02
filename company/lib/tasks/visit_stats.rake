@@ -3,8 +3,7 @@
 namespace :task do
   desc "Record a visit"
   task :visit_stats => :environment do
-  Visit.where(processed: false).find_each do |visit|
-  visit.update_attributes(:processed => 'normal')
+  Visit.find_each do |visit|
   vs = VisitStat.where(ip_address: visit.ip_address).first
     if vs.nil?
       vs = VisitStat.create(ip_address: visit.ip_address)
@@ -12,9 +11,12 @@ namespace :task do
     else
       vs.increment!(:num_of_visits)
       vs.processed = true
+        Visit.where(processed: false).find_each do |visit|
+           visit.update_attributes(:processed => 'normal')
+        end
       vs.save
     end
-
+    
   end
 end
 end
