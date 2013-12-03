@@ -7,4 +7,4 @@ has_one :visit, :as => :visitable
     validates_format_of :phone,
       :with => /\d[0-9]\)*\z/,
       :message => " Please, only 9 numbers. cool."
-end
+end 
