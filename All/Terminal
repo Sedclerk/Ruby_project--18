@@ -944,3 +944,79 @@ Mac-Book-Pro-Sedclerk:company Sedclerk$Mac-Book-Pro-Sedclerk:company Sedclerk$ r
 ==  CreateVisitStats: migrated (0.0667s) ======================================
 
 Mac-Book-Pro-Sedclerk:company Sedclerk$ 
+
+========================================================================
+========================================================================
+
+Last login: Mon Dec  2 08:58:18 on console
+Rubis:) cd /Users/Sedclerk/Documents/Github/Ruby_project--18/company 
+Rubis:) rake db:migrate
+==  CreateVisits: migrating ===================================================
+-- create_table(:visits)
+   -> 0.0360s
+-- add_index(:visits, :ip_address)
+   -> 0.0239s
+==  CreateVisits: migrated (0.0601s) ==========================================
+
+==  CreateVisitStats: migrating ===============================================
+-- create_table(:visit_stats)
+   -> 0.0138s
+-- add_index(:visit_stats, :visit_id)
+   -> 0.0241s
+-- add_index(:visit_stats, :ip_address)
+   -> 0.0239s
+-- add_index(:visit_stats, :num_of_visits)
+   -> 0.0255s
+==  CreateVisitStats: migrated (0.0876s) ======================================
+
+==  AddProcessedToVisits: migrating ===========================================
+-- add_column(:visits, :processed, :boolean)
+   -> 0.0212s
+==  AddProcessedToVisits: migrated (0.0213s) ==================================
+
+Rubis:) rake db:migrate
+Rubis:) rails generate scaffold Message name:string last_name:string phone:integer  email:string message:text
+      invoke  active_record
+Another migration is already named create_messages: /Users/Sedclerk/Documents/Github/Ruby_project--18/company/db/migrate/20131106115702_create_messages.rb. Use --force to remove the old migration file and replace it.
+Rubis:) rails generate scaffold Message name:string last_name:string phone:integer  email:string message:text --force
+      invoke  active_record
+      remove    db/migrate/20131106115702_create_messages.rb
+      create    db/migrate/20131202065446_create_messages.rb
+       force    app/models/message.rb
+      invoke    test_unit
+   identical      test/models/message_test.rb
+   identical      test/fixtures/messages.yml
+      invoke  resource_route
+       route    resources :messages
+      invoke  scaffold_controller
+       force    app/controllers/messages_controller.rb
+      invoke    erb
+       exist      app/views/messages
+       force      app/views/messages/index.html.erb
+       force      app/views/messages/edit.html.erb
+       force      app/views/messages/show.html.erb
+       force      app/views/messages/new.html.erb
+       force      app/views/messages/_form.html.erb
+      invoke    test_unit
+   identical      test/controllers/messages_controller_test.rb
+      invoke    helper
+   identical      app/helpers/messages_helper.rb
+      invoke      test_unit
+   identical        test/helpers/messages_helper_test.rb
+      invoke    jbuilder
+   identical      app/views/messages/index.json.jbuilder
+   identical      app/views/messages/show.json.jbuilder
+      invoke  assets
+      invoke    coffee
+   identical      app/assets/javascripts/messages.js.coffee
+      invoke    scss
+   identical      app/assets/stylesheets/messages.css.scss
+      invoke  scss
+   identical    app/assets/stylesheets/scaffolds.css.scss
+Rubis:) rake db:migrate
+==  CreateMessages: migrating =================================================
+-- create_table(:messages)
+   -> 0.0264s
+==  CreateMessages: migrated (0.0265s) ========================================
+
+Rubis:) 

@@ -263,5 +263,60 @@ drwxr-xr-x    5 Sedclerk  staff    170 Sep 23 19:35 refs\
 \
 \
 \
-test\
+21:ruby_project--18 Sedclerk$ rake task:visit_stats\
+rake aborted!\
+No Rakefile found (looking for: rakefile, Rakefile, rakefile.rb, Rakefile.rb)\
+\
+(See full trace by running task with --trace)\
+21:ruby_project--18 Sedclerk$ cd company\
+21:company Sedclerk$ rake task:visit_stats\
+rake aborted!\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/lib/tasks/visit_stats.rake:14: syntax error, unexpected $end, expecting keyword_end\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/Rakefile:6:in `<top (required)>'\
+(See full trace by running task with --trace)\
+21:company Sedclerk$ rake task:visit_stats\
+rake aborted!\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/lib/tasks/visit_stats.rake:14: syntax error, unexpected $end, expecting keyword_end\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/Rakefile:6:in `<top (required)>'\
+(See full trace by running task with --trace)\
+21:company Sedclerk$ rake task:visit_stats\
+rake aborted!\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/lib/tasks/visit_stats.rake:15: syntax error, unexpected $end, expecting keyword_end\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/Rakefile:6:in `<top (required)>'\
+(See full trace by running task with --trace)\
+21:company Sedclerk$ rake task:visit_stats\
+rake aborted!\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/lib/tasks/visit_stats.rake:15: syntax error, unexpected $end, expecting keyword_end\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/Rakefile:6:in `<top (required)>'\
+(See full trace by running task with --trace)\
+21:company Sedclerk$ rake task:visit_stats\
+rake aborted!\
+cannot load such file -- config/environment\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/lib/tasks/visit_stats.rake:1:in `<top (required)>'\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/Rakefile:6:in `<top (required)>'\
+(See full trace by running task with --trace)\
+21:company Sedclerk$ rake task:visit_stats\
+rake aborted!\
+can't write unknown attribute `num_visits'\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/lib/tasks/visit_stats.rake:12:in `block (3 levels) in <top (required)>'\
+/Users/Sedclerk/Documents/Github/Ruby_project--18/company/lib/tasks/visit_stats.rake:6:in `block (2 levels) in <top (required)>'\
+Tasks: TOP => task:visit_stats\
+(See full trace by running task with --trace)\
+21:company Sedclerk$ rake task:visit_stats\
+21:company Sedclerk$ \
+\
+============================================================================\
+\
+Project 19\
+\
+Rubis:) rails g model CarType manifacturerName:string  modelName:string distance:text  engine:text seats:integer fuel:string color:string steering:string year:integer  acquisitionPrice:integer \
+      invoke  active_record\
+      create    db/migrate/20131204124309_create_car_types.rb\
+      create    app/models/car_type.rb\
+      invoke    test_unit\
+      create      test/models/car_type_test.rb\
+      create      test/fixtures/car_types.yml\
+Rubis:) \
+\
+\
 }
