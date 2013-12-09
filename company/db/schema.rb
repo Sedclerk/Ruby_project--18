@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20131202065446) do
   end
 
   create_table "visit_stats", force: true do |t|
-    t.integer  "visit_id"
     t.string   "ip_address",    limit: 15
     t.integer  "num_of_visits"
     t.datetime "created_at"
@@ -33,7 +32,6 @@ ActiveRecord::Schema.define(version: 20131202065446) do
 
   add_index "visit_stats", ["ip_address"], name: "index_visit_stats_on_ip_address", using: :btree
   add_index "visit_stats", ["num_of_visits"], name: "index_visit_stats_on_num_of_visits", using: :btree
-  add_index "visit_stats", ["visit_id"], name: "index_visit_stats_on_visit_id", using: :btree
 
   create_table "visits", force: true do |t|
     t.string   "ip_address", limit: 15
