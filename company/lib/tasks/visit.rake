@@ -6,9 +6,9 @@ namespace :task do
        vs = Visit.where(processed:false).find_each do |visit|
        if vs.nil?
          vs = Visit.create(ip_address: visit.ip_address)
+         vs = Visit.update_attributes(:processed => 'normal')
          puts 
          else
-          vs = Visit.update_attributes(:processed => 'normal')
           vs.increment!(:num_of_visits)
           vs.processed = true
           vs.save
@@ -17,6 +17,3 @@ namespace :task do
      end
   end
 end
-
-
-
